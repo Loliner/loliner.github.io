@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Animation Test</title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery-transit/0.9.12/jquery.transit.min.js"></script>
+
+    <style>
+        div {
+            border: 1px solid #ddd;
+            width: 100px;
+            height: 100px;
+        }
+        .div1 {
+            background: yellow;
+        }
+        .div2 {
+            background: deepskyblue;
+        }
+        .div3 {
+            background: sandybrown;
+        }
+        .div4 {
+            background: greenyellow;
+        }
+        .ani_class {
+            animation: div3_ani 3s linear forwards;
+        }
+        @keyframes div3_ani {
+            0% {
+                transform: none;
+            }
+            100% {
+                transform: translate(300px, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+
+    <script>
+        $(function(){
+            $div1 = $(".div1");
+            $div2 = $(".div2");
+            $div3 = $(".div3");
+            $div4 = $(".div4");
+
+            //可捕捉结束事件
+            $div1.transition({
+                transform : "translateX(300px)"
+            },3000,"linear", function(){
+                alert("transition end");
+            });
+
+            //不可捕捉结束事件
+            $div2.css({
+                "transition-timing-function" : "linear",
+                "transition-duration" : "3000ms",
+                "transform" : "translateX(300px)"
+            });
+
+            //可捕捉结束事件
+            $div3.addClass("ani_class").on("webkitAnimationEnd",function(){
+                alert("addClass + transform");
+            });
+
+            function addTransitAni(element){
+                var defer = $.Deferred();
+                element.transition({
+                    transform : "translateX(300px)"
+                },3000,"linear", function(){
+                    defer.resolve();
+                });
+                return defer;
+            }
+
+//            addTransitAni($div1).then(function(){
+//                return addTransitAni($div2);
+//            }).then(function(){
+//                return addTransitAni($div3);
+//            }).then(function(){
+//                return addTransitAni($div4);
+//            }).then(function(){
+//                alert("animation end!");
+//            });
+
+            function addClassAni(element){
+                var defer = $.Deferred();
+                element.addClass("ani_class").on(animationEnd(),function(){
+                    defer.resolve();
+                });
+                return defer;
+            }
+
+            addClassAni($div1).then(function(){
+                return addClassAni($div2);
+            }).then(function(){
+                return addClassAni($div3);
+            }).then(function(){
+                return addClassAni($div4);
+            }).then(function(){
+                alert("animation end!");
+            });
+
+            function animationEnd(){
+                var explorer = navigator.userAgent;
+                if( ~explorer.indexOf("WebKit") ){
+                    return 'webkitAnimationEnd';
+                }
+                return 'animationend';
+            }
+        });
+    </script>
+</body>
+</html>

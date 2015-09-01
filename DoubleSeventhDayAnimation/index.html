@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Double Seventh Day Animation</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/pageA.css"/>
+    <link rel="stylesheet" href="css/pageB.css"/>
+    <link rel="stylesheet" href="css/pageC.css"/>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery-transit/0.9.12/jquery.transit.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/swipe.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+    <ul class="content-wrap">
+        <li>
+            <div class="a_background">
+                <div class="a_background_top"></div>
+                <div class="a_background_middle"></div>
+                <div class="a_background_bottom"></div>
+                <div id="sun"></div>
+                <div class="cloud cloud_left"></div>
+                <div class="cloud cloud_right"></div>
+            </div>
+        </li>
+        <li>
+            <div class="b_background"></div>
+            <div class="b_background_preload"></div>
+            <div class="shop">
+                <div class="door">
+                    <div class="door_left"></div>
+                    <div class="door_right"></div>
+                </div>
+                <div class="lamp"></div>
+            </div>
+            <div class="bird"></div>
+        </li>
+        <li>
+            <div class="c_background">
+                <div class="c_background_top"></div>
+                <div class="c_background_middle"></div>
+                <div class="c_background_bottom"></div>
+            </div>
+            <div class="girl"></div>
+            <div class="bridge_bottom">
+                <div class="water">
+                    <div id="water1" class="water_1"></div>
+                    <div id="water2" class="water_2"></div>
+                    <div id="water3" class="water_3"></div>
+                    <div id="water4" class="water_4"></div>
+                </div>
+            </div>
+            <ul class="stars">
+                <li class="stars1"></li>
+                <li class="stars2"></li>
+                <li class="stars3"></li>
+                <li class="stars4"></li>
+                <li class="stars5"></li>
+                <li class="stars6"></li>
+            </ul>
+            <div class="logo"></div>
+        </li>
+    </ul>
+    <div id="boy" class="boy"></div>
+    <div id="snowflakeContainer" class="snowflakeContainer"></div>
+    <div class="start_box">
+        <span class="start_button">Click here to start this animation!</span>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        var container = $("#container");
+        var swipe = Swipe(container);
+        var music = new Music();
+        var boy = Boy();
+        var door = new Door();
+        var lamp = new Lamp();
+        var bird = new Bird();
+        var girl = new Girl();
+        var logo = new Logo();
+        var snowflake = new SnowFlake();
+        girl.modifiedOffset();
+
+        swipe.scrollTo(0, 0);
+
+        $(".start_box").click(function(){
+
+            boy.walkTo(6000,0.6).then(function(){
+                swipe.scrollTo(5500, 1);
+            }).then(function(){
+                return boy.walkTo(5500,0.55);
+            }).then(function(){
+                boy.stopWalk();
+            }).then(function(){
+                return door.openDoor();
+            }).then(function(){
+                lamp.bright();
+            }).then(function(){
+                return boy.toShop(1500);
+            }).then(function(){
+                return boy.buyFlower();
+            }).then(function(){
+                bird.fly();
+            }).then(function(){
+                return boy.outShop(1500);
+            }).then(function(){
+                door.closeDoor();
+            }).then(function(){
+                lamp.dark();
+            }).then(function(){
+                swipe.scrollTo(6000, 2);
+            }).then(function(){
+                return boy.walkTo(6000,0.2);
+            }).then(function(){
+                var topPro = (getValue(".c_background_middle").top - girl.getHeight()) / container.height();
+                return boy.walkTo(1500, 0.3, topPro);
+            }).then(function(){
+                var xPro = (girl.getOffset().left - boy.getWidth() + girl.getWidth()/2.7) / container.width();
+                return boy.walkTo(1500, xPro);
+            }).then(function(){
+                boy.flowerStop();   //走到女孩跟前，停下
+            }).then(function(){
+                setTimeout(function(){
+                    girl.turnRound();   //女孩转身
+                    boy.turnRound(function(){   //男孩转身
+                        logo.display();
+                        snowflake.animationStart();
+                    });
+                }, 2000);
+            });
+
+            //隐藏开始按钮
+            hiddenStartButton();
+            //音乐从一开始就已经播放了
+            music.html5Audio(music.audioConfig.playURl).end(function(){
+                music.html5Audio(music.audioConfig.cycleURL, true);
+            });
+            //太阳移动
+            $("#sun").addClass("sun_move");
+            //云移动
+            $(".cloud_left").addClass("left_ani_class");
+            $(".cloud_right").addClass("right_ani_class");
+        });
+    });
+</script>
+
+
+</body>
+</html>

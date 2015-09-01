@@ -1,0 +1,506 @@
+/**
+ * Created by sony on 2015/8/29.
+ */
+.c_background {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.c_background_top {
+    width: 100%;
+    height: 72%;
+    background-image: url("../imgs/c_top.png");
+    background-size: 100% 100%;
+}
+
+.c_background_middle {
+    width: 100%;
+    height: 13%;
+    background-image: url("../imgs/c_middle.png");
+    background-size: 100% 100%;
+}
+
+.c_background_bottom {
+    width: 100%;
+    height: 15%;
+    background-image: url("../imgs/c_bottom.png");
+    background-size: 100% 100%;
+}
+
+/******************小女孩******************/
+.girl {
+    background: url("../imgs/girl.png") -755px -0px no-repeat;
+    position: absolute;
+    right: 40%;
+    top: 37%;
+    width: 151px;
+    height: 291px;
+}
+
+.girl_turn_round {
+    animation: girl_turn_round_ani .85s steps(1, start) forwards;
+    -moz-animation: girl_turn_round_ani .85s steps(1, start) forwards;
+    -webkit-animation: girl_turn_round_ani .85s steps(1, start) forwards;
+    -o-animation: girl_turn_round_ani .85s steps(1, start) forwards;
+}
+
+@keyframes girl_turn_round_ani {
+    0% { background-position: -604px -0px; }
+    16.7% { background-position: -151px -0px; }
+    33.4% { background-position: -906px -0px; }
+    50.1% { background-position: -0px -0px; }
+    66.8% { background-position: -302px -0px; }
+    83.5% { background-position: -453px -0px; }
+    100% { background-position: -604px -0px; }
+}
+
+@-moz-keyframes girl_turn_round_ani /* Firefox */
+{
+    0% { background-position: -604px -0px; }
+    16.7% { background-position: -151px -0px; }
+    33.4% { background-position: -906px -0px; }
+    50.1% { background-position: -0px -0px; }
+    66.8% { background-position: -302px -0px; }
+    83.5% { background-position: -453px -0px; }
+    100% { background-position: -604px -0px; }
+}
+
+@-webkit-keyframes girl_turn_round_ani /* Safari 和 Chrome */
+{
+    0% { background-position: -604px -0px; }
+    16.7% { background-position: -151px -0px; }
+    33.4% { background-position: -906px -0px; }
+    50.1% { background-position: -0px -0px; }
+    66.8% { background-position: -302px -0px; }
+    83.5% { background-position: -453px -0px; }
+    100% { background-position: -604px -0px; }
+}
+
+@-o-keyframes girl_turn_round_ani /* Opera */
+{
+    0% { background-position: -604px -0px; }
+    16.7% { background-position: -151px -0px; }
+    33.4% { background-position: -906px -0px; }
+    50.1% { background-position: -0px -0px; }
+    66.8% { background-position: -302px -0px; }
+    83.5% { background-position: -453px -0px; }
+    100% { background-position: -604px -0px; }
+}
+
+/******************桥******************/
+.bridge_bottom {
+    position: absolute;
+    width: 41%;
+    height: 24%;
+    left: 29.5%;
+    top: 76%;
+    overflow: hidden;
+}
+
+/******************波浪******************/
+.water {
+    width: 100%;
+    height: 100%;
+}
+
+.water_1,
+.water_2,
+.water_3,
+.water_4 {
+    position: absolute;
+}
+
+.water_1 {
+    width: 131px;
+    height: 15px;
+    top: 13%;
+    left: 35%;
+    background: url("../imgs/water.png") -261px -0px no-repeat;
+    animation: water_move_ani 40s linear 0s infinite;
+    -moz-animation: water_move_ani 40s linear 0s infinite;
+    -webkit-animation: water_move_ani 40s linear 0s infinite;
+    -o-animation: water_move_ani 40s linear 0s infinite;
+}
+
+.water_2 {
+    width: 161px;
+    height: 9px;
+    top: 30%;
+    left: 45%;
+    background: url("../imgs/water.png") -693px -0px no-repeat;
+    animation: water_move_ani 40s linear 3s infinite;
+    -moz-animation: water_move_ani 40s linear 3s infinite;
+    -webkit-animation: water_move_ani 40s linear 3s infinite;
+    -o-animation: water_move_ani 40s linear 3s infinite;
+}
+
+.water_3 {
+    width: 261px;
+    height: 29px;
+    top: 50%;
+    left: 15%;
+    background: url("../imgs/water.png") -0px -0px no-repeat;
+    animation: water_move_ani 40s linear 1s infinite;
+    -moz-animation: water_move_ani 40s linear 1s infinite;
+    -webkit-animation: water_move_ani 40s linear 1s infinite;
+    -o-animation: water_move_ani 40s linear 1s infinite;
+}
+
+.water_4 {
+    width: 301px;
+    height: 12px;
+    top: 75%;
+    left: 30%;
+    background: url("../imgs/water.png") -392px -0px no-repeat;
+    animation: water_move_ani 40s linear 2s infinite;
+    -moz-animation: water_move_ani 40s linear 2s infinite;
+    -webkit-animation: water_move_ani 40s linear 2s infinite;
+    -o-animation: water_move_ani 40s linear 2s infinite;
+}
+
+/*水波移动动画*/
+@keyframes water_move_ani {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-30px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(30px);
+    }
+}
+
+@-moz-keyframes water_move_ani /* Firefox */
+{
+    0%, 100% {
+        -moz-transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -moz-transform: translateX(-30px);
+    }
+    20%, 40%, 60%, 80% {
+        -moz-transform: translateX(30px);
+    }
+}
+
+@-webkit-keyframes water_move_ani /* Safari 和 Chrome */
+{
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translateX(-30px);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translateX(30px);
+    }
+}
+
+@-o-keyframes water_move_ani /* Opera */
+{
+    0%, 100% {
+        -o-transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -o-transform: translateX(-30px);
+    }
+    20%, 40%, 60%, 80% {
+        -o-transform: translateX(30px);
+    }
+}
+
+/******************星星******************/
+.stars {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.stars>li {
+    position: absolute;
+    width: 30px;
+    height: 31px;
+    background: url("../imgs/star.png") no-repeat;
+    animation: star_ani 3s linear 0s infinite;
+    -moz-animation: star_ani 3s linear 0s infinite;
+    -webkit-animation: star_ani 3s linear 0s infinite;
+    -o-animation: star_ani 3s linear 0s infinite;
+}
+.stars1 {
+    top: 20%;
+    left: 30%;
+}
+.stars2 {
+    top: 15%;
+    left: 20%;
+}
+.stars3 {
+    top: 25%;
+    left: 85%;
+}
+.stars4 {
+    top: 30%;
+    left: 70%;
+}
+.stars5 {
+    top: 25%;
+    left: 20%;
+}
+.stars6 {
+    top: 10%;
+    left: 65%;
+}
+
+/*水波移动动画*/
+@keyframes star_ani {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0.1
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes star_ani /* Firefox */
+{
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0.1
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes star_ani /* Safari 和 Chrome */
+{
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0.1
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@-o-keyframes star_ani /* Opera */
+{
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0.1
+    }
+    100% {
+        opacity: 1
+    }
+}
+/******************Logo******************/
+.logo {
+    width: 185px;
+    height: 81px;
+    background-image: url("../imgs/logo.png");
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    margin-left: -92.5px;
+    top: 30px;
+    display: none;
+}
+/*logo进入动画class*/
+.logoIn {
+    display: block;
+    animation: logo_in_ani 1s ease-out;
+    -moz-animation: logo_in_ani 1s ease-out;
+    -webkit-animation: logo_in_ani 1s ease-out;
+    -o-animation: logo_in_ani 3s ease-out;
+}
+/*logo颤动动画class*/
+.logoShake {
+    animation: logo_shake_ani 0.5s;
+    -moz-animation: logo_shake_ani 0.5s;
+    -webkit-animation: logo_shake_ani 0.5s;
+    -o-animation: logo_shake_ani 0.5s;
+}
+/*logo进入动画*/
+@keyframes logo_in_ani
+{
+    0% {
+        transform: translate(100%, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+@-moz-keyframes logo_in_ani /* Firefox */
+{
+    0% {
+        -moz-transform: translate(100%, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -moz-transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -moz-transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        -moz-transform: none;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes logo_in_ani /* Safari 和 Chrome */
+{
+    0% {
+        -webkit-transform: translate(100%, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -webkit-transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -webkit-transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: none;
+        opacity: 1;
+    }
+}
+@-o-keyframes logo_in_ani /* Opera */
+{
+    0% {
+        -o-transform: translate(100%, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -o-transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -o-transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        -o-transform: none;
+        opacity: 1;
+    }
+}
+/*logo颤动动画*/
+@keyframes logo_shake_ani
+{
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translate(-5px, 0);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translate(10px, 0);
+    }
+}
+
+@-moz-keyframes logo_shake_ani /* Firefox */
+{
+    0%, 100% {
+        -moz-transform: translate(0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -moz-transform: translate(-5px, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -moz-transform: translate(10px, 0);
+    }
+}
+
+@-webkit-keyframes logo_shake_ani /* Safari 和 Chrome */
+{
+    0%, 100% {
+        -webkit-transform: translate(0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate(-5px, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate(10px, 0);
+    }
+}
+
+@-o-keyframes logo_shake_ani /* Opera */
+{
+    0%, 100% {
+        -o-transform: translate(0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -o-transform: translate(-5px, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -o-transform: translate(10px, 0);
+    }
+}
+/*******************雪花*******************/
+.snowflakeContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+/*雪花旋转动画class*/
+.snowflake_whirl {
+    position: absolute;
+    z-index: 1;
+    top: -41px;
+    width: 41px;
+    height: 41px;
+    background-size: cover;
+    opacity: 0;
+    animation: sf_whirl_ani 20s;
+    -moz-animation: sf_whirl_ani 20s;
+    -webkit-animation: sf_whirl_ani 20s;
+    -o-animation: sf_whirl_ani 20s;
+}
+@keyframes sf_whirl_ani {
+    0% { bottom: 100%; }
+    50% { transform: rotate(1080deg); }
+    100% { transform: rotate(0deg) translate(50px, 50px); }
+}
+@-webkit-keyframes sf_whirl_ani {
+    0% { bottom: 100%; }
+    50% { -webkit-transform: rotate(1080deg); }
+    100% { -webkit-transform: rotate(0deg) translate(50px, 50px); }
+}
+@-moz-keyframes sf_whirl_ani {
+    0% { bottom: 100%; }
+    50% { -moz-transform: rotate(1080deg); }
+    100% { -moz-transform: rotate(0deg) translate(50px, 50px); }
+}
+@-o-keyframes sf_whirl_ani {
+    0% { bottom: 100%; }
+    50% { -o-transform: rotate(1080deg); }
+    100% { -o-transform: rotate(0deg) translate(50px, 50px); }
+}

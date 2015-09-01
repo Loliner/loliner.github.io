@@ -1,0 +1,141 @@
+/**
+ * Created by sony on 2015/8/28.
+ */
+/********************背景*********************/
+.a_background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.a_background_top {
+    width: 100%;
+    height: 72%;
+    background-image: url("../imgs/a_top.png");
+    background-size: 100% 100%;
+}
+.a_background_middle {
+    width: 100%;
+    height: 13%;
+    background-image: url("../imgs/a_middle.png");
+    background-size: 100% 100%;
+}
+.a_background_bottom {
+    width: 100%;
+    height: 15%;
+    background-image: url("../imgs/a_bottom.png");
+    background-size: 100% 100%;
+}
+
+/*******************太阳***********************/
+#sun {
+    background: url("../imgs/sun.png") no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 60%;
+    height: 201px;
+    width: 201px;
+}
+/*太阳移动class*/
+.sun_move {
+    animation: sun_move_ani 30s;
+    -moz-animation: sun_move_ani 30s;	/* Firefox */
+    -webkit-animation: sun_move_ani 30s;	/* Safari 和 Chrome */
+    -o-animation: sun_move_ani 30s;	/* Opera */
+}
+/*太阳移动动画*/
+@keyframes sun_move_ani
+{
+    0%   {transform: translateX(0) translateY(0);}
+    100% {transform: translateX(-2000px) translateY(250px);}
+}
+@-moz-keyframes sun_move_ani /* Firefox */
+{
+    0%   {transform: translateX(0) translateY(0);}
+    100% {transform: translateX(-2000px) translateY(250px);}
+}
+@-webkit-keyframes sun_move_ani /* Safari 和 Chrome */
+{
+    0%   {transform: translateX(0) translateY(0);}
+    100% {transform: translateX(-2000px) translateY(250px);}
+}
+@-o-keyframes sun_move_ani /* Opera */
+{
+    0%   {transform: translateX(0) translateY(0);}
+    100% {transform: translateX(-2000px) translateY(250px);}
+}
+
+/**********************云样式**************************/
+.cloud {
+    z-index: 2;
+    position: absolute;
+}
+.cloud_left {
+    background: url("../imgs/cloud_left.png") no-repeat;
+    width: 181px;
+    height: 101px;
+    left: 10%;
+    top: 15%;
+}
+.cloud_right {
+    background: url("../imgs/cloud_right.png") no-repeat;
+    width: 301px;
+    height: 140px;
+    right: 0%;
+    top:5%;
+}
+/*云动画class*/
+.left_ani_class {
+    animation: cloud_left_ani 30s linear infinite;
+    -moz-animation: cloud_left_ani 30s linear infinite;
+    -webkit-animation: cloud_left_ani 30s linear infinite;
+    -o-animation: cloud_left_ani 30s linear infinite;
+}
+.right_ani_class {
+    animation: cloud_right_ani 30s linear infinite;
+    -moz-animation: cloud_right_ani 30s linear infinite;
+    -webkit-animation: cloud_right_ani 30s linear infinite;
+    -o-animation: cloud_right_ani 30s linear infinite;
+}
+/*云动画（左）*/
+@keyframes cloud_left_ani
+{
+    0%   {left:10%}
+    100% {left:100%}
+}
+@-moz-keyframes cloud_left_ani /* Firefox */
+{
+    0%   {left:10%}
+    100% {left:100%}
+}
+@-webkit-keyframes cloud_left_ani /* Safari 和 Chrome */
+{
+    0%   {left:10%}
+    100% {left:100%}
+}
+@-o-keyframes cloud_left_ani /* Opera */
+{
+    0%   {left:10%}
+    100% {left:100%}
+}
+/*云动画（右）*/
+@keyframes cloud_right_ani
+{
+    0%   {right:0%}
+    100% {right:100%}
+}
+@-moz-keyframes cloud_right_ani /* Firefox */
+{
+    0%   {right:0%}
+    100% {right:100%}
+}
+@-webkit-keyframes cloud_right_ani /* Safari 和 Chrome */
+{
+    0%   {right:0%}
+    100% {right:100%}
+}
+@-o-keyframes cloud_right_ani /* Opera */
+{
+    0%   {right:0%}
+    100% {right:100%}
+}

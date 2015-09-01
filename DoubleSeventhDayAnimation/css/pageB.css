@@ -1,0 +1,72 @@
+/**
+ * Created by sony on 2015/8/29.
+ */
+.b_background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../imgs/b_background_dark.png");
+    background-size: 100% 100%;
+    position: absolute;
+}
+.b_background_preload {
+    background: url("../imgs/b_background_light.png") no-repeat -9999px -9999px;
+}
+/*通过切换背景图来达到开关灯效果*/
+.lamp_bright {
+    background-image: url("../imgs/b_background_light.png");
+}
+
+/***********************商店************************/
+.shop {
+    position: absolute;
+    left: 29%;
+    top: 36.5%;
+    width: 39.5%;
+    height: 35.5%;
+}
+.door {
+    position: absolute;
+    top: 32%;
+    left: 58.5%;
+    width: 32%;
+    height: 68%;
+    overflow: hidden;
+}
+.door_left, .door_right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.door_left {
+    left: 0;
+    background: url("../imgs/door_left.png") 0% 35% no-repeat;
+    background-size: 100%;
+}
+.door_right {
+    left: 50%;
+    background: url("../imgs/door_right.png") 0% 35% no-repeat;
+    background-size: 100%;
+}
+
+/***********************小鸟************************/
+.bird {
+    min-width: 91px;
+    min-height: 71px;
+    position: absolute;
+    z-index: 2;
+    top: 10%;
+    right: -91px;
+    background: url("../imgs/bird.png") no-repeat -182px 0px;
+}
+.birdFly {
+    animation: bird_fly_ani .4s steps(1,start) infinite;
+    -moz-animation: bird_fly_ani .4s steps(1,start) infinite;
+    -webkit-animation: bird_fly_ani .4s steps(1,start) infinite;
+    -o-animation: bird_fly_ani .4s steps(1,start) infinite;
+}
+@keyframes bird_fly_ani {
+    0% { background-position: -182px 0px; }
+    50% {background-position: 0px 0px;}
+    75% {background-position: -91px 0px;}
+    100% {background-position: -182px 0px;}
+}

@@ -1,13 +1,22 @@
 .aside {
-  width:30%;
+    width:30%;
 }
 .par {
-  position: relative;
-  padding: 1em;
-  border-bottom: 1px solid #ddd;
+    position: relative;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
 }
 .time {
-  position: absolute;
-  right:10px;
-  bottom: 10px;
+    position: absolute;
+    right:10px;
+    bottom: 10px;
+}
+div#clock_box {
+    width: 700px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+img {
+    margin: 0 auto;
 }
