@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>NutPhone Demo</title>
+<style>
+    body {
+        background: #eee;
+        color: #999;
+        overflow: hidden;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    body, ul, li, img {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    img {
+        border: none;
+    }
+
+    .phone_wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: transform 0.8s cubic-bezier(.445, .05, .55, .95); /*用于div左右移动*/
+        -webkit-transition: transform 0.8s cubic-bezier(.445, .05, .55, .95);
+    }
+
+    .phone_ul {
+        width: 100%;
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        bottom: 0;
+        transition: transform 0.8s cubic-bezier(.445, .05, .55, .95); /*用于ul缩放*/
+        -webkit-transition: transform 0.8s cubic-bezier(.445, .05, .55, .95);
+    }
+
+    .phone_ul li {
+        float: left;
+        width: 13.8%;
+        position: relative;
+        transition: transform 0.8s cubic-bezier(.445, .05, .55, .95); /*用于ul缩放*/
+        -webkit-transition: transform 0.8s cubic-bezier(.445, .05, .55, .95);
+    }
+
+    .phone_ul li img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        will-change: transform;
+        cursor: pointer;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: transform 0.8s cubic-bezier(0, .68, .86, .98); /* 用于图片上下移动 */
+        -webkit-transition: transform 0.8s cubic-bezier(0, .68, .86, .98);
+
+    }
+
+    .phone_ul li:nth-child(1) img {
+        transform: translate3d(0px, 63%, 0px);
+        -webkit-transform: translate3d(0px, 63%, 0px);
+    }
+
+    .phone_ul li:nth-child(2) img {
+        transform: translate3d(0px, 47%, 0px);
+        -webkit-transform: translate3d(0px, 47%, 0px);
+    }
+
+    .phone_ul li:nth-child(3) img {
+        transform: translate3d(0px, 67%, 0px);
+        -webkit-transform: translate3d(0px, 67%, 0px);
+    }
+
+    .phone_ul li:nth-child(4) img {
+        transform: translate3d(0px, 47%, 0px);
+        -webkit-transform: translate3d(0px, 47%, 0px);
+    }
+
+    .phone_ul li:nth-child(5) img {
+        transform: translate3d(0px, 27%, 0px);
+        -webkit-transform: translate3d(0px, 27%, 0px);
+    }
+
+    .phone_ul li:nth-child(6) img {
+        transform: translate3d(0px, 47%, 0px);
+        -webkit-transform: translate3d(0px, 47%, 0px);
+    }
+
+    .phone_ul li:nth-child(7) img {
+        transform: translate3d(0px, 61%, 0px);
+        -webkit-transform: translate3d(0px, 61%, 0px);
+    }
+
+    .addChildStyle li:nth-child(n) img {
+        /*点击图片并放大时，图片会参差不齐，而且有些会移出屏幕。所以在点击的时候给外层div加上这个样式*/
+        transform: translate3d(0, 30%, 0) !important; /*让所有图片都统一向下偏移30%*/
+        -webkit-transform: translate3d(0, 30%, 0) !important; /*设置important是因为在mousemove时用js给img设置的偏移效果是以内联样式加入的，所以必须让这里为important*/
+    }
+
+    .addChildStyle li.large img {
+        /*同时让被点击的图片只下移15%，就好了*/
+        transform: translate3d(0, 15%, 0) !important;
+        -webkit-transform: translate3d(0, 15%, 0) !important;
+    }
+
+    li.prev {
+        transform: translate3d(-15%, 0, 0); /* perv和next用于让其他图片跟被点击的图片拉开距离 */
+        -webkit-transform: translate3d(-15%, 0, 0);
+    }
+
+    li.next {
+        transform: translate3d(15%, 0, 0);
+        -webkit-transform: translate3d(15%, 0, 0);
+    }
+
+    /*进度条*/
+    .progressBar {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        background-color: #fff;
+    }
+
+    .progress {
+        width: 0;
+        height: 5px;
+        background-color: rgb(146, 174, 240);
+    }
+
+    /*音乐播放按钮*/
+    .line {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        width: 4px;
+        background-color: #fff;
+    }
+    .line1 {
+        left: 25%;
+        height: 160px;
+    }
+    .line2 {
+        left: 40%;
+        height: 220px;
+    }
+    .line3 {
+        left: 50%;
+        height: 130px;
+    }
+    .line4 {
+        left: 60%;
+        height: 240px;
+    }
+    .line5 {
+        left: 75%;
+        height: 180px;
+    }
+    .activeLine {
+        background-color: rgb(146, 174, 240);
+        box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.2);
+    }
+    .ball {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #fff;
+        cursor: pointer;
+    }
+    .activeBall {
+        color: #fff;
+        background-color: rgb(146, 174, 240);
+        box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.2);
+    }
+    .arc1 {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 0 -50px -50px;
+    }
+    .arc2 {
+        width: 140px;
+        height: 140px;
+        line-height: 140px;
+        margin: 0 0 -70px -70px;
+    }
+    .arc3 {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        margin: 0 0 -40px -40px;
+    }
+    .arc4 {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        margin: 0 0 -75px -75px;
+    }
+    .stop {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 0 -50px -50px;
+    }
+
+</style>
+<script>
+    /** 可视区域宽度 **/
+    function view() {
+        return {
+            W: document.documentElement.clientWidth
+        }
+    }
+
+    /** 得到元素的offsetLeft **/
+    function getOffsetLeft(obj) {   //拿取offsetLeft看来有门道
+        var offsetLeft = 0;
+        while (obj) {
+            offsetLeft += obj.offsetLeft;
+            obj = obj.offsetParent;
+        }
+        return offsetLeft;
+    }
+
+    /** 添加class的工具方法 **/
+    function addClass(elem, clazz){
+        var className = " " + elem.className + " ";
+        if( className.indexOf(" " + clazz + " ") < 0 ) {
+            className += clazz;
+        }
+        elem.className = className.trim();
+    }
+    /** 移除class的工具方法 **/
+    function removeClass( elem, clazz ){
+        var className = " " + elem.className + " ";
+        if( className.indexOf(" " + clazz + " ") >= 0 ) {
+            className = className.replace(" " + clazz + " ", " ");
+        }
+        elem.className = className.trim();
+    }
+
+    window.onload = function () {
+        var div = document.querySelectorAll(".phone_wrapper")[0];
+        var ul = document.querySelectorAll(".phone_ul")[0];
+        var lis = ul.getElementsByTagName("li");
+        var imgs = ul.getElementsByTagName("img");
+
+        var range = ul.offsetWidth / 7 * 5;     //鼠标影响范围
+
+        var aniTime = 0, moveTime = 0;  //动画执行的时刻，光标移动的时刻
+        var timer = null;   //定时器
+        var clientX = 0;    //光标x轴
+
+        var onOff = true;    //缩小和放大的开关
+
+        /** 让图片对等充满整个屏幕 **/
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].style.width = view().W / 7 / view().W * 100 + "%";
+        }
+
+        /** 图片移动动画 **/
+        function moveAnimation() {
+            for (var i = 0; i < imgs.length; i++) {
+                //中心点
+                var middle = getOffsetLeft(imgs[i]) + imgs[i].offsetWidth / 2;
+
+                //鼠标到每张图片中心点的距离
+                var distance = Math.abs(clientX - middle);
+                distance = distance > range ? range : distance;
+
+                //得到（鼠标距离/影响范围范围）的一个比例，也就是translateY目标偏移量
+                var destTranslateY = Math.abs(distance / range) * 60;
+
+                //缓冲效果
+                var top = imgs[i].getBoundingClientRect().top - lis[i].getBoundingClientRect().top;//拿到图片距离父容器顶部的偏移度（如果用offsetTop是拿不到的）
+                var currTranslateY = top / imgs[i].offsetHeight * 100;     //拿到（距离父容器顶部/自身高度）的比例，也就是当前translateY的偏移量
+                var partition = (destTranslateY - currTranslateY) / 5;  //为了让图片不一下子移动到目标偏移量，我们将到达目标偏移量的距离分割成多个值
+                currTranslateY += partition;    //让当前偏移量加上分割的偏移量（越靠近目标偏移量，分割量越小）
+
+                //设置其移动
+                imgs[i].style.transform = "translate3d(0," + currTranslateY + "%,0)";
+                imgs[i].style.webkitTransform = "translate3d(0," + currTranslateY + "%,0)";
+
+                //由于原有的transition会影响到移动动画的效果，所以将其取消（不是很理解）
+                imgs[i].style.webkitTransition = "none";
+                imgs[i].style.transition = "none";
+
+                aniTime = new Date().valueOf();
+            }
+            if (aniTime - moveTime < 2000) {
+                timer = requestAnimationFrame(moveAnimation);   //当鼠标停止移动时，动画就立即停止了，没有将缓冲进行到底，所以在此处继续进行动画
+            }                                                   //由于缓冲动画不会一直进行，所以当鼠标停止时，动画执行的方法最多让其再执行2秒钟
+        }
+
+
+        /** 鼠标移动事件 **/
+        ul.onmousemove = mouseMoveFunc;
+        function mouseMoveFunc(event) {
+            var e = event || window.event;
+            clientX = e.clientX;    //将鼠标x轴坐标保存为全局变量变量
+
+            //记录当前事件触发的时间
+            moveTime = new Date().valueOf();
+
+            cancelAnimationFrame(timer); //清除定时器
+            timer = requestAnimationFrame(moveAnimation);   //利用html5规定的动画计时器效果比setInterval更加平滑（因为前者是跟着html请求走的）
+        }
+        /** 鼠标移除事件 **/
+        ul.onmouseout = mouseOutFunc;
+        function mouseOutFunc() {
+            cancelAnimationFrame(timer);    //鼠标移开时取消动画
+            for (var i = 0; i < imgs.length; i++) {     //同时删除用js绑定的transition样式，那样它会默认使用原来的css样式
+                imgs[i].removeAttribute("style");
+            }
+        }
+
+        /** 缩小或放大事件 **/
+        ul.onclick = scale;
+        function scale(event) {
+            var e = event || window.event;
+
+            //放大
+            if (onOff) {
+                var target = e.target;
+                cancelAnimationFrame(timer);    //点击时取消动画
+                if (target.nodeName.toLowerCase() === "img") {
+                    //取消移动移出事件
+                    ul.onmousemove = null;
+                    //ul.onmouseout = null;
+
+                    //统一图片高度，设置平滑过渡
+                    for (var i = 0; i < imgs.length; i++) {
+                        imgs[i].style.webkitTransition = "transform 0.8s cubic-bezier(.445,.05,.55,.95)";
+                        imgs[i].style.transition = "transform 0.8s cubic-bezier(.445,.05,.55,.95)";
+                        imgs[i].index = i;
+                    }           //为了让图片整体统一时不是一下子就偏移到目标偏移量，所以要让每个图片加上一个过渡时间（因为之前在mousemove时将其取消了）
+                    addClass(div, "addChildStyle");         //addChildStyle可使所有图片统一下移30%
+                    addClass(target.parentNode, "large");   //large可使被点击的图片只下移15%
+
+                    //让其他图片与点击的图片拉开距离
+                    for (var j = 0; j < imgs.length; j++) {
+                        if (imgs[j].index < target.index) {
+                            addClass( imgs[j].parentNode, "prev" );  //给所点击的图片的左边的li统一向左偏移15%
+                        } else if (imgs[j].index > target.index) {
+                            addClass( imgs[j].parentNode, "next" );  //右边的li统一向右偏移15%
+                        }
+                    }   //因为上面已经给img加了一个transform样式，且为important，所以再给img加的话就不起作用了，所以这里加在了li上
+
+                    //放大图片
+                    var currTranslateX = (3 - target.index) * view().W / 7;
+                    //var currTranslateX = view().W/2 - (getOffsetLeft(target) + target.offsetWidth/2);
+                    ul.style.transform = "translate3d(" + currTranslateX * 3 + "px,0,0) scale(3)";    //将ul放大3倍，即可细看手机图片
+                    ul.style.webkitTransform = "translate3d(" + currTranslateX * 3 + "px,0,0) scale(3)";
+                }
+                setTimeout(function () {      //为防止放大的过程中再次点击产生
+                    onOff = false;
+                }, 800);
+
+                //缩小
+            } else {
+                //取消所有样式和动画（事件添加时会重新设置动画）
+                removeClass(div, "addChildStyle");
+                ul.removeAttribute("style");
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = "";  //清空所有class
+                }
+                setTimeout(function () {      //为防止缩小的过程中再次点击产生放大效果，所以等动画时间完成后才添加事件，及设置onOff为true
+                    ul.onmousemove = mouseMoveFunc;
+                    //ul.onmouseout = mouseOutFunc;
+                    onOff = true;
+                }, 800);
+            }
+        };
+
+        /** 初始化音乐设置 **/
+        (function(){
+            var audio = new Audio();
+            var audioContext, analyser, sourceNode, freqArray, activeBall, num, k, m, n;
+            var balls = document.querySelectorAll(".ball");
+            var stopBall = document.querySelector(".stop");
+            var progress = document.querySelector(".progress");
+            var musicList = [
+                "music/monster.mp3",
+                "music/Loser.mp3",
+                "music/Tonight.mp3",
+                "music/You Raise Me Up.mp3"
+            ];
+
+            //给停止按钮添加激活样式
+            addClass(stopBall, "activeBall");
+            addClass( stopBall.parentNode, "activeLine" );
+            //按钮初始化
+            for( var i=0; i<balls.length; i++ ){
+                balls[i].index = i;
+                balls[i].onclick = function(){
+                    ul.onmousemove = null;
+                    ul.onmouseout = null;
+                    ul.onclick = null;
+                    for( var j=0; j<balls.length; j++ ){  //只对除stop外的按钮添加播放事件
+                        removeClass( balls[j], "activeBall" );
+                        removeClass( balls[j].parentNode, "activeLine" );
+                    }
+                    activeBall = this;
+                    addClass( activeBall, "activeBall" );
+                    addClass( activeBall.parentNode, "activeLine" );
+                    init();
+                    audio.src = musicList[this.index];
+                    addPlayListener();
+                }
+            }
+            //音乐停止按钮
+            stopBall.onclick = function(){
+                init();
+                ul.onmousemove = mouseMoveFunc;
+                ul.onmouseout = mouseOutFunc;
+                ul.onclick= scale;
+                for( var j=0; j<balls.length; j++ ){  //只对除stop外的按钮添加播放事件
+                    removeClass(balls[j],"activeBall");
+                    removeClass( balls[j].parentNode, "activeLine" );
+                }
+                activeBall = stopBall;
+                addClass(stopBall, "activeBall");
+                addClass( stopBall.parentNode, "activeLine" );
+            };
+
+            //播放器初始化
+            function init(){
+                audio.pause();
+                audio = null;
+                audio = new Audio();
+            }
+            //对音乐加载完毕事件进行监听
+            function addPlayListener(){
+                audio.addEventListener("canplay",function(){
+                    analyser = sourceNode = null;
+                    musicPlay();
+                },false)
+            }
+            //音乐播放
+            function musicPlay(){
+                //为了得到音频数据而创建对象
+                audioContext = audioContext || new AudioContext();
+                //调用音频解码器
+                analyser = analyser || audioContext.createAnalyser();
+
+                sourceNode = audioContext.createMediaElementSource(audio);
+                sourceNode.connect( analyser );
+                sourceNode.connect( audioContext.destination );
+
+                audio.play();
+                danceWithMusic();
+            }
+            //根据音乐播放状态改变页面元素样式
+            function danceWithMusic(){
+                progress.style.width = audio.currentTime / audio.duration * 100 + "%";  //进度条
+
+                //得到的音频是一个二进制数，需要进行解析
+                freqArray = new Uint8Array( analyser.frequencyBinCount );
+                analyser.getByteFrequencyData( freqArray );//根据解析结果得到数组
+                //此处得到的数组length=1024，其每个元素的值为该音律的声音大小（以二进制表示，从0到255）
+                PhoneAndBallDance( freqArray );
+
+                if( audio.paused ){ //音频是否暂停
+
+                } else {
+                    requestAnimationFrame(danceWithMusic);  //循环调用更新页面元素样式
+                }
+
+            }
+
+            function PhoneAndBallDance( arr ){
+                var step = Math.round( arr.length / 8 );    //step=128
+                for( var i=0; i<7; i++ ){
+                    num = arr[i*step];  //拿到1024个音律中第0、128、256...个音律
+                    k = num / imgs[i].offsetHeight * 100;   //这一段逻辑我确实不知道是干嘛的
+                    m = 100 - k;
+                    n = m-30 > 0 ? m-30 : 0;
+                    imgs[i].style.transform = "translate3d(0," + n + "%,0)";
+                    imgs[i].style.webkitTransform = "translate3d(0," + n + "%,0)";
+                    if( i == 0 ){
+                        activeBall.style.transform = "scale("+ (2-m/100) +","+ (2-m/100) +")";    //为什么这里的scale要设置两个值，一个不行吗？
+                        activeBall.style.webkitTransform = "scale("+ (2-m/100) +","+ (2-m/100) +")";
+
+                    }
+                }
+            }
+
+
+        })();
+    };
+</script>
+</head>
+<body>
+<div class="progressBar">
+    <div class="progress"></div>
+</div>
+<div class="btnArea">
+    <ul>
+        <li class="line line1"><span class="ball arc1">Monster</span></li>
+        <li class="line line2"><span class="ball arc2">Loser</span></li>
+        <li class="line line3"><span class="ball arc3">Tonight</span></li>
+        <li class="line line4"><span class="ball arc4">You Raise Me Up</span></li>
+        <li class="line line5"><span class="ball stop">stop</span></li>
+    </ul>
+</div>
+<div class="phone_wrapper">
+    <ul class="phone_ul">
+        <li>
+            <img src="imgs\backcover-red-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-orange-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-yellow-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-green-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-cyan-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-blue-medium.png" alt=""/>
+        </li>
+        <li>
+            <img src="imgs\backcover-purple-medium.png" alt=""/>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>
