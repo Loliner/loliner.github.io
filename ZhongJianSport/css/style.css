@@ -1,0 +1,55 @@
+/**
+ * Created by sony on 2015/12/26 0026.
+ */
+
+html, body, ul, li, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: '微软雅黑';
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    color: #2d374b;
+    text-decoration: none
+}
+
+a:hover {
+    color: #cd0200;
+    text-decoration: underline
+}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
+
+/* for IE/Mac */
+
+.l-container {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mask {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    z-index: 1;
+}
+
+.mask-hover {
+    display: none;
+}
+
+.my-border {
+    border: 1px solid #dddddd;
+}
