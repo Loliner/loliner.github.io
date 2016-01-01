@@ -13,15 +13,26 @@ ul, li {
     list-style: none;
 }
 
-a {
-    color: #2d374b;
+a:link {
+    color: #333;
     text-decoration: none
+}
+
+a:visited {
+    color:#333;
+    text-decoration: none;
 }
 
 a:hover {
     color: #cd0200;
-    text-decoration: underline
+    text-decoration: underline;
 }
+
+a:active {
+    color: #333;
+    text-decoration: none;
+}
+
 
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .clearfix{*+height:1%;}
