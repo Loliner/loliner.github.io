@@ -1,0 +1,405 @@
+/** * create date:2016-01-03 22:02:59; * create by:sony; */
+
+
+/*商品简介*/
+
+.main .pro-intro {
+    width: 900px;
+    height: 500px;
+    margin-top: 30px;
+}
+
+.main .pro-intro .img-box {
+    width: 400px;
+    height: 500px;
+    float: left;
+}
+
+.main .pro-intro .pro-styles {
+    width: 500px;
+    height: 500px;
+    float: right;
+    padding: 15px 15px 15px 25px;
+}
+
+.main .pro-intro h1.pro-caption {
+    font-size: 16px;
+}
+
+.main .pro-intro .pro-num {
+    color: #aaa;
+    margin: 10px 0;
+}
+
+.main .pro-intro .pro-price {
+    background: url('../imgs/background01.png') no-repeat 0 0;
+    padding: 20px;
+}
+
+.main .pro-intro .pro-price span {
+    font-size: 20px;
+    color: red;
+    margin-left: 20px;
+}
+
+.main .pro-intro .pro-colors {
+    margin: 10px 0;
+    color: #888;
+}
+
+.main .pro-intro .pro-colors dt {
+    float: left;
+    line-height: 50px;
+    margin-right: 20px;
+}
+
+.main .pro-intro .pro-colors dd {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+
+.main .pro-intro .pro-colors img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.main .pro-intro .pro-colors dd:hover img {
+    padding: 0;
+    border: 2px solid red;
+}
+
+.main .pro-intro .pro-colors img.active {
+    padding: 0;
+    border: 2px solid red;
+}
+
+.main .pro-intro .pro-colors span.color-name {
+    width: 50px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    background: #fff;
+    border: 1px solid #aaa;
+    text-align: center;
+    line-height: 25px;
+    display: none;
+    color: #666;
+}
+
+.main .pro-intro .pro-colors dd:hover span {
+    display: block;
+}
+
+.main .pro-intro .pro-sizes {
+    margin: 20px 0;
+    color: #aaa;
+    line-height: 30px;
+}
+
+.main .pro-intro .pro-sizes dt {
+    float: left;
+    margin-right: 20px;
+    color: #888;
+}
+
+.main .pro-intro .pro-sizes dd {
+    float: left;
+    width: 50px;
+    height: 30px;
+    margin-right: 20px;
+    border: 2px solid #ddd;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+    color: #666;
+}
+
+.main .pro-intro .pro-sizes dd:hover {
+    border: 2px solid red;
+}
+
+.main .pro-intro .pro-sizes dd.active {
+    border: 2px solid red;
+}
+
+.main .pro-intro .pro-count {
+    margin: 10px 0;
+    color: #aaa;
+    line-height: 30px;
+}
+
+.main .pro-intro .pro-count dt {
+    float: left;
+    margin-right: 20px;
+    color: #888;
+}
+
+.main .pro-intro .pro-count .count-input-box {
+    float: left;
+}
+
+.main .pro-intro .pro-count .count-input-box input {
+    width: 60px;
+    height: 30px;
+    float: left;
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+}
+
+.main .pro-intro .pro-count .count-input-box button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999;
+    border: 1px solid #ddd;
+    background: #fff;
+    outline: none;
+    float: left;
+}
+
+.main .pro-intro .buy-area {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.main .pro-intro button.buy {
+    width: 180px;
+    height: 50px;
+    border: 1px solid #CC6600;
+    background-color: #eee;
+    font-size: 20px;
+    color: #CC6600;
+    outline: none;
+    transition-property: border color background;
+    transition-duration: 0.3s;
+}
+
+.main .pro-intro button.buy:hover {
+    border: 1px solid #CC3300;
+    color: #CC3300;
+    background: #ddd;
+}
+
+.main .pro-intro button.shopping-trolley {
+    width: 180px;
+    height: 50px;
+    border: 1px solid #CC6600;
+    background-color: #CC6600;
+    font-size: 20px;
+    color: #ddd;
+    outline: none;
+    position: relative;
+    padding-left: 20px;
+    transition-property: background color;
+    transition-duration: 0.3s;
+}
+
+.main .pro-intro button.shopping-trolley:hover {
+    background: #CC9900;
+    color: #fff;
+}
+
+.main .pro-intro .shopping-trolley-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    margin-top: -10px;
+    background: url('../imgs/shopping_tralley.png') no-repeat 0 0;
+    background-size: 20px 20px;
+}
+
+.main .pro-intro .promise dt {
+    float: left;
+    margin-right: 20px;
+    color: #888;
+}
+
+.main .pro-intro .promise dd {
+    float: left;
+    margin: 0 10px;
+    color: #666;
+}
+
+
+/*商品实物展示*/
+
+.main .middle {
+    width: 695px;
+    height: 1000px;
+    float: left;
+    margin-left: 5px;
+}
+
+.main .pro-detail .tab-bar {
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main .pro-detail .tab-bar li {
+    width: 100px;
+    height: 40px;
+    border-top: 2px solide #fff;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    float: left;
+    background: #fff;
+}
+
+.main .pro-detail .tab-bar li.active {
+    border-bottom: 1px solid #fff;
+    border-top: 2px solid red;
+}
+
+/*商品相关*/
+
+.main .left {
+    width: 195px;
+    height: 1000px;
+    float: left;
+    margin-right: 5px;
+}
+
+
+/*放大镜插件样式*/
+
+#magnifier {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+#magnifier .img-wrapper {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+#magnifier .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#magnifier .img-wrapper .pointer-mask {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#magnifier .mag-img-box {
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    overflow: hidden;
+    display: none;
+}
+
+#magnifier .mag-img-box .mag-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#magnifier .thumbnail {
+    height: 100px;
+    position: relative;
+}
+
+#magnifier .thumbnail .prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 16px;
+    background: url("../imgs/left_button.png") no-repeat 0 50%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    transition: opacity 0.3s;
+}
+
+#magnifier .thumbnail .prev:hover {
+    opacity: 1;
+}
+
+#magnifier .thumbnail .next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 16px;
+    background: url("../imgs/right_button.png") no-repeat 0 50%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    transition: opacity 0.3s;
+}
+
+#magnifier .thumbnail .next:hover {
+    opacity: 1;
+}
+
+#magnifier .thumbnail .list-wrapper {
+    position: relative;
+    height: 100%;
+    margin: 0 25px;
+    overflow: hidden;
+}
+
+#magnifier .thumbnail .thumbnail-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 328px;
+    height: 70px;
+    padding: 15px 0;
+    list-style: none;
+}
+
+#magnifier .thumbnail li {
+    line-height: 100%;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin: 0 10px;
+}
+
+#magnifier .thumbnail li img {
+    border: 1px solid #ddd;
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    transition-property: border;
+    transition-duration: 0.4s;
+}
+
+#magnifier .thumbnail li img:hover {
+    border: 1px solid red;
+}

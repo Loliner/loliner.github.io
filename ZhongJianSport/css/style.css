@@ -2,7 +2,7 @@
  * Created by sony on 2015/12/26 0026.
  */
 
-html, body, ul, li, h1, h2, h3, h4, h5, h6 {
+html, body, ul, li, h1, h2, h3, h4, h5, h6, dl, dt, dd {
     margin: 0;
     padding: 0;
     font-size: 12px;
@@ -64,3 +64,81 @@ a:active {
 .my-border {
     border: 1px solid #dddddd;
 }
+
+/* header nav */
+.header .login-wrapper {
+    height: 30px;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.header .login-wrapper .wel-word {
+    float: left;
+}
+
+.header .login-wrapper ul {
+    float: right;
+}
+
+.header .login-wrapper li {
+    display: inline;
+    /*ie7不支持inline-block*/
+    margin-left: 60px;
+    text-align: right;
+}
+
+.header .logo-wrapper {
+    height: 75px;
+}
+
+.header .nav {
+    height: 40px;
+    background-color: #333333;
+}
+
+.header .nav li {
+    position: relative;
+    display: block;
+    float: left;
+    text-align: center;
+    color: #fff;
+    width: 157px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition-property: background color;
+    transition-duration: 0.6s;
+    /* Firefox 4 */
+    -moz-transition-property: background color;
+    ;
+    -moz-transition-duration: 0.6s;
+    /* Safari 和 Chrome */
+    -webkit-transition-property: background color;
+    ;
+    -webkit-transition-duration: 0.6s;
+}
+
+.header .nav li:hover {
+    background: #f3f3f3;
+    color: #333;
+}
+
+.header .nav li:hover .sub-list {
+    visibility: visible;
+    opacity: 0.9;
+}
+
+.header .nav .sub-list {
+    position: absolute;
+    z-index: 1;
+    color: #000;
+    background: #333333;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+}
+

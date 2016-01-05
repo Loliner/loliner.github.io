@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>test</title>
 
-	<style>
-		.mask {
-			position: absolute;
-			top:0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: url('imgs/opacity50.png') repeat;
-		}
-	</style>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+    .parent {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+        margin-top: 10px;
+    }
+    
+    .child {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        margin-top: 50px;
+    }
+    </style>
 </head>
+
 <body>
-	123
-	<div class="mask"></div>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
 </body>
+
 </html>
