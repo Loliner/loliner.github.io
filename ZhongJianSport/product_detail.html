@@ -29,7 +29,9 @@
         </div>
         <div class="nav">
             <ul class="l-container">
-                <a href="index.html"><li>首页</li></a>
+                <a href="index.html">
+                    <li>首页</li>
+                </a>
                 <li>所有商品</li>
                 <li>篮球系列
                     <ul class="sub-list">
@@ -120,7 +122,7 @@
             </ul>
         </div>
     </div>
-    <div class="main l-container">
+    <div class="main l-container clearfix">
         <div class="pro-intro">
             <div id="magnifier" class="img-box">
                 <div id="img-wrapper" class="img-wrapper">
@@ -178,7 +180,7 @@
                     <dt>数量</dt>
                     <div class="count-input-box clearfix">
                         <button id="count-reduce" class="count-reduce">-</button>
-                        <input id="count-text" type="text" disabled="true" value="1" >
+                        <input id="count-text" type="text" disabled="true" value="1">
                         <button id="count-add" class="count-add">+</button>
                     </div>
                 </dl>
@@ -194,16 +196,183 @@
                 </dl>
             </div>
         </div>
-        <div>
+        <div class="clearfix">
             <div class="left pro-related my-border"></div>
             <div class="middle pro-detail my-border">
-                <ul class="tab-bar">
-                    <li class="active">商品详情</li>
-                    <li>累计评价</li>
-                    <li>成交记录</li>
+                <ul id="tab-bar" class="tab-bar">
+                    <li id="tab-title-01">商品详情</li>
+                    <li id="tab-title-02" class="active">累计评价</li>
+                    <li id="tab-title-03">商品咨询</li>
+                </ul>
+                <ul id="tab-content" class="tab-content clearfix">
+                    <li id="tab-panel-01">
+                        <ul class="pro-attributes clearfix">
+                            <li>编号：4312</li>
+                            <li>品牌：中健</li>
+                            <li>品牌：中健</li>
+                            <li>适用运动：网球</li>
+                            <li>功能：吸湿排汗</li>
+                            <li>货源类别：现货</li>
+                            <li>适合性别：男</li>
+                            <li>衣袖：短袖</li>
+                            <li>衣领：立领</li>
+                            <li>面料：100%涤纶</li>
+                            <li>适合季节：夏季</li>
+                            <li>价格区间：1-50元</li>
+                        </ul>
+                        <p class="pro-imgs">
+                            <img src="imgs/clothes_detail/detail_01.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_02.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_03.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_04.gif" alt="">
+                            <img src="imgs/clothes_detail/detail_05.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_06.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_07.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_08.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_09.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_10.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_11.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_12.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_13.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_14.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_15.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_16.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_17.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_18.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_19.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_20.jpg" alt="">
+                            <img src="imgs/clothes_detail/detail_21.jpg" alt="">
+                        </p>
+                    </li>
+                    <li id="tab-panel-02" class="evaluation active">
+                        <div class="user-eval">
+                            <h2 class="title-01">整体评价<span>（共278名用户参与评论）</span></h2>
+                            <p class="remarks">亲爱的顾客，您好！所有打分及评论均来自购买本产品的用户。有关本产品的任何疑问请在下方留言，我们将第一时间为你回复。</p>
+                            <div class="score-wrapper clearfix">
+                                <div class="overall">
+                                    <h3>综合评分</h3>
+                                    <span>5.0</span>
+                                </div>
+                                <div class="score-detail">
+                                    <div class="score-01">
+                                        <span>外观评分</span>
+                                        <span></span>
+                                        <span>5.0</span>
+                                    </div>
+                                    <div class="score-02">
+                                        <span>舒适评分</span>
+                                        <span></span>
+                                        <span>5.0</span>
+                                    </div>
+                                    <div class="score-03">
+                                        <span>质量评分</span>
+                                        <span></span>
+                                        <span>5.0</span>
+                                    </div>
+                                </div>
+                                <div class="my-eval">
+                                    <button>我要评论</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eval-list">
+                            <h2 class="title-01">评价详情</h2>
+                            <div>
+                                <h3 class="title-02">用户158****8308<span>评分：4.8</span></h3>
+                                <div class="content-wrapper">
+                                    <dl>
+                                        <dd>颜色：红色</dd>
+                                        <dd>尺码：S/165</dd>
+                                    </dl>
+                                    <p>很抱歉，因为京东用惯了，没有及时确认。很喜欢这件衣服，因为尺码不合适，让海澜之家帮忙换了，很感谢。</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="title-02">用户158****8308<span>评分：4.8</span></h3>
+                                <div class="content-wrapper">
+                                    <dl>
+                                        <dd>颜色：红色</dd>
+                                        <dd>尺码：S/165</dd>
+                                    </dl>
+                                    <p>很抱歉，因为京东用惯了，没有及时确认。很喜欢这件衣服，因为尺码不合适，让海澜之家帮忙换了，很感谢。</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="title-02">用户158****8308<span>评分：4.8</span></h3>
+                                <div class="content-wrapper">
+                                    <dl>
+                                        <dd>颜色：红色</dd>
+                                        <dd>尺码：S/165</dd>
+                                    </dl>
+                                    <p>嗯嗯，果断好评！</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="tab-panel-03">3</li>
                 </ul>
             </div>
             <div class="right"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <ul class="list l-container clearfix">
+            <li class="item clearfix">篮球系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">男篮球服</a></li>
+                    <li class="sub-item"><a href="">女篮球服</a></li>
+                </ul>
+            </li>
+            <li class="item">足球系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">足球服</a></li>
+                    <li class="sub-item"><a href="">守门服</a></li>
+                    <li class="sub-item"><a href="">足球训练裤</a></li>
+                    <li class="sub-item"><a href="">训练背心</a></li>
+                </ul>
+            </li>
+            <li class="item">乒排系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">男乒乓球服</a></li>
+                    <li class="sub-item"><a href="">女乒乓球服</a></li>
+                    <li class="sub-item"><a href="">男排球服</a></li>
+                    <li class="sub-item"><a href="">女排球服</a></li>
+                </ul>
+            </li>
+            <li class="item">网羽系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">男网球服</a></li>
+                    <li class="sub-item"><a href="">女网球服</a></li>
+                    <li class="sub-item"><a href="">男羽毛球服</a></li>
+                    <li class="sub-item"><a href="">女羽毛球服</a></li>
+                </ul>
+            </li>
+            <li class="item">田径系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">男田径服</a></li>
+                    <li class="sub-item"><a href="">女田径服</a></li>
+                </ul>
+            </li>
+            <li class="item">休闲系列
+                <ul class="sub-list">
+                    <li class="sub-item"><a href="">男T恤</a></li>
+                    <li class="sub-item"><a href="">女T恤</a></li>
+                    <li class="sub-item"><a href="">运动休闲短裤</a></li>
+                    <li class="sub-item"><a href="">女短裤</a></li>
+                    <li class="sub-item"><a href="">男中裤</a></li>
+                    <li class="sub-item"><a href="">女中裤</a></li>
+                    <li class="sub-item"><a href="">男长裤</a></li>
+                    <li class="sub-item"><a href="">女长裤</a></li>
+                    <li class="sub-item"><a href="">外套单衫</a></li>
+                    <li class="sub-item"><a href="">运动套装</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="search-area l-container">
+            <div class="search-wrapper">
+                <input type="text" placeholder="请输出搜索产品名">
+                <button>搜索商品</button>
+            </div>
         </div>
     </div>
     <script src="js/jquery.min.js"></script>
@@ -220,18 +389,18 @@
         //选择颜色
         var colorBox = $("#pro-colors");
         var colorImgs = colorBox.find("img");
-        colorBox.delegate("img", "click", function(e){
-            colorImgs.each(function(index, _this){
-                $(_this).removeClass("active");     //所有颜色图标先设置为未激活
+        colorBox.delegate("img", "click", function(e) {
+            colorImgs.each(function(index, _this) {
+                $(_this).removeClass("active"); //所有颜色图标先设置为未激活
             });
-            $(e.target).addClass("active");     //激活点中的那个颜色
+            $(e.target).addClass("active"); //激活点中的那个颜色
         })
 
         //选择尺码
         var sizeBox = $("#pro-sizes");
         var sizeItem = sizeBox.find("dd");
-        sizeBox.delegate("dd","click",function(e){
-            sizeItem.each(function(index, _this){
+        sizeBox.delegate("dd", "click", function(e) {
+            sizeItem.each(function(index, _this) {
                 $(_this).removeClass("active");
             });
             $(e.target).addClass("active");
@@ -241,15 +410,38 @@
         var countReduce = $("#count-reduce");
         var countText = $("#count-text");
         var countAdd = $("#count-add");
-        countReduce.click(function(){
+        countReduce.click(function() {
             var count = countText.val();
             count = --count < 1 ? 1 : count;
             countText.val(count);
         });
-        countAdd.click(function(){
+        countAdd.click(function() {
             var count = countText.val();
             countText.val(++count);
         });
+
+        //tab页显示事件
+        var tabBar = $("#tab-bar");
+        var tabTitles = tabBar.find("li");
+        var tabPenals = $("#tab-content>li");
+        var currentTabId = "tab-panel-01";
+        tabBar.delegate("li", "click", function(e) {
+            var panelId = $(e.target).attr("id").replace(/title/, "panel");
+            if (panelId !== currentTabId) { //如果当前tab已激活，则再次点击无效
+                tabTitles.each(function(index, _this) {
+                    $(_this).removeClass("active");
+                });
+                $(e.target).addClass("active");
+                tabPenals.each(function(index, _this) {
+                    $(_this).css({
+                        display: "none"
+                    }).removeClass("active");
+                });
+                $("#" + panelId).fadeIn().addClass("active");
+                currentTabId = panelId;
+            }
+
+        })
     });
     </script>
 </body>

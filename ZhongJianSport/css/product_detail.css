@@ -232,11 +232,10 @@
 }
 
 
-/*商品实物展示*/
+/*商品实物展示（中部）*/
 
 .main .middle {
     width: 695px;
-    height: 1000px;
     float: left;
     margin-left: 5px;
 }
@@ -249,7 +248,7 @@
 .main .pro-detail .tab-bar li {
     width: 100px;
     height: 40px;
-    border-top: 2px solide #fff;
+    border-top: 2px solid #fff;
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
     text-align: center;
@@ -257,6 +256,7 @@
     font-size: 14px;
     float: left;
     background: #fff;
+    cursor: pointer;
 }
 
 .main .pro-detail .tab-bar li.active {
@@ -264,11 +264,143 @@
     border-top: 2px solid red;
 }
 
+.main .pro-detail ul.tab-content {
+    position: relative;
+}
+
+.main .pro-detail .tab-content>li {
+    min-height: 1000px;
+    float: left;
+    display: none;
+}
+
+.main .pro-detail .tab-content>li.active {
+    display: block;
+}
+
+#tab-panel-01 .pro-attributes {
+    /*商品展示*/
+    margin: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#tab-panel-01 .pro-attributes li {
+    width: 200px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+#tab-panel-01 .pro-imgs img {
+    max-width: 690px;
+}
+
+#tab-panel-02 {
+    padding: 20px;
+}
+
+#tab-panel-02 .title-01 {
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+#tab-panel-02 .title-01 span {
+    font-size: 14px;
+    color: #888;
+}
+
+#tab-panel-02 .remarks {
+    color: #999;
+}
+
+#tab-panel-02 .score-wrapper .overall {
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+    color: red;
+    float: left;
+}
+
+#tab-panel-02 .score-wrapper .overall h3 {
+    font-size: 14px;
+}
+
+#tab-panel-02 .score-wrapper .overall span {
+    font-size: 40px;
+}
+
+#tab-panel-02 .score-wrapper .score-detail {
+    width: 300px;
+    height: 100px;
+    float: left;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+#tab-panel-02 .score-wrapper .my-eval {
+    width: 200px;
+    height: 100px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+#tab-panel-02 .score-wrapper .my-eval button {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: 1px solid #CC6600;
+    background-color: #CC6600;
+    color: #eee;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -50px;
+}
+
+#tab-panel-02 .eval-list .title-02 {
+    font-size: 14px;
+    color: #888;
+    position: relative;
+    padding:10px 10px 0 10px;
+}
+
+#tab-panel-02 .eval-list .title-02 span {
+    position: absolute;
+    right: 20px;
+    color: red;
+}
+
+#tab-panel-02 .eval-list .content-wrapper {
+    position: relative;
+}
+
+#tab-panel-02 .eval-list dl {
+    width: 150px;
+    height: 100%;
+    min-height: 34px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#tab-panel-02 .eval-list p {
+    margin-left: 150px;
+    padding: 0 10px;
+    text-indent: 2em;
+}
+
+
 /*商品相关*/
 
 .main .left {
     width: 195px;
-    height: 1000px;
     float: left;
     margin-right: 5px;
 }
