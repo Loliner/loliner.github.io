@@ -305,14 +305,26 @@
     }
 }
 /******************Logo******************/
+// .logo {
+//     width: 185px;
+//     height: 81px;
+//     background: url("../imgs/logo.png");
+//     z-index: 2;
+//     position: absolute;
+//     left: 50%;
+//     margin-left: -92.5px;
+//     top: 30px;
+//     display: none;
+// }
+
 .logo {
-    width: 185px;
-    height: 81px;
-    background-image: url("../imgs/logo.png");
+    width: 125px;
+    height: 41px;
+    background: url("../imgs/logo2.png") no-repeat;
     z-index: 2;
     position: absolute;
     left: 50%;
-    margin-left: -92.5px;
+    margin-left: -62.5px;
     top: 30px;
     display: none;
 }
