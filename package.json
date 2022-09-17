@@ -1,0 +1,23 @@
+{
+  "name": "loliner.github.io",
+  "version": "1.0.0",
+  "description": "Lolin`s repository This is my first file in github.<br/> <a href=\"http://loliner.github.io/\">Please view my blog here!</a>",
+  "main": "index.js",
+  "dependencies": {
+    "jekyll": "^3.0.0-beta1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loliner/loliner.github.io.git"
+  },
+  "author": "zhengjiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Loliner/loliner.github.io/issues"
+  },
+  "homepage": "https://github.com/Loliner/loliner.github.io#readme"
+}
